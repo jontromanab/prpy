@@ -170,7 +170,7 @@ class OpenRAVEAffineRetimer(Planner):
     def RetimeTrajectory(self, robot, path, **kw_args):
 
         RetimeTrajectory = openravepy.planningutils.RetimeAffineTrajectory
-
+	env = robot.GetEnv() #The Environment was never called in the original repository, was creating problem while planning for base
         cspec = path.GetConfigurationSpecification()
 
         # Check for anything other than affine dofs in the traj
